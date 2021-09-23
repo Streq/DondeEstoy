@@ -403,6 +403,12 @@ points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
 [sub_resource type="ConvexPolygonShape2D" id=123]
 points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
 
+[sub_resource type="ConvexPolygonShape2D" id=124]
+points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
+
+[sub_resource type="ConvexPolygonShape2D" id=125]
+points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
+
 [sub_resource type="ConvexPolygonShape2D" id=126]
 points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
 
@@ -427,19 +433,13 @@ points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
 [sub_resource type="ConvexPolygonShape2D" id=133]
 points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
 
+[sub_resource type="ConvexPolygonShape2D" id=134]
+points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
+
+[sub_resource type="ConvexPolygonShape2D" id=135]
+points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
+
 [sub_resource type="ConvexPolygonShape2D" id=136]
-points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
-
-[sub_resource type="ConvexPolygonShape2D" id=138]
-points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
-
-[sub_resource type="ConvexPolygonShape2D" id=139]
-points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
-
-[sub_resource type="ConvexPolygonShape2D" id=140]
-points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
-
-[sub_resource type="ConvexPolygonShape2D" id=141]
 points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
 
 [sub_resource type="TileSet" id=137]
@@ -903,79 +903,79 @@ points = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
 "autotile_coord": Vector2( 4, 5 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 126 ),
+"shape": SubResource( 124 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 5, 5 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 127 ),
+"shape": SubResource( 125 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 4, 6 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 128 ),
+"shape": SubResource( 126 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 5, 6 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 129 ),
+"shape": SubResource( 127 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 5, 7 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 130 ),
+"shape": SubResource( 128 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 4, 7 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 131 ),
+"shape": SubResource( 129 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 6, 5 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 132 ),
+"shape": SubResource( 130 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 7, 5 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 133 ),
+"shape": SubResource( 131 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 6, 7 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 136 ),
+"shape": SubResource( 132 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 6, 6 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 138 ),
+"shape": SubResource( 133 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 7, 6 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 139 ),
+"shape": SubResource( 134 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 6, 4 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 140 ),
+"shape": SubResource( 135 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 7, 4 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 141 ),
+"shape": SubResource( 136 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 8/z_index = 0
