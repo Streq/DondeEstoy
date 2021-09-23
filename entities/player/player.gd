@@ -16,6 +16,9 @@ var jump := false
 
 func _physics_process(delta):
 	var move_dir = float(Input.is_action_pressed("right"))-float(Input.is_action_pressed("left"))
+	var look = float(Input.is_action_pressed("down"))-float(Input.is_action_pressed("up"))
+	
+	$Sprite/sight.rotation_degrees = look*45
 	
 	if move_dir:
 		if !air:

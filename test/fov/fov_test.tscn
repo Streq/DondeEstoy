@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://test/fov/pov.gd" type="Script" id=1]
 [ext_resource path="res://assets/texture/background.png" type="Texture" id=2]
-[ext_resource path="res://assets/texture/light.png" type="Texture" id=3]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://terrain/terrain.tscn" type="PackedScene" id=5]
 
@@ -25,9 +24,3 @@ move_in_editor = false
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 632, 80 )
-
-[node name="Light2D" type="Light2D" parent="player"]
-scale = Vector2( 100, 100 )
-texture = ExtResource( 3 )
-mode = 3
-shadow_enabled = true
