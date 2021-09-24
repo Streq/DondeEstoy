@@ -6,4 +6,5 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="root" parent="." instance=ExtResource( 1 )]
+main_vp_height = 320
 game_scene = ExtResource( 2 )
