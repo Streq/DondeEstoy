@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/terrain_autotile2.png-3ac8816c6013c46f40b1f6ac780224d2.stex"
+path="res://.import/gray.png-0b0e68cb37be509a3e3b9f9b5e90b254.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/texture/terrain_autotile2.png"
-dest_files=[ "res://.import/terrain_autotile2.png-3ac8816c6013c46f40b1f6ac780224d2.stex" ]
+source_file="res://assets/texture/gray.png"
+dest_files=[ "res://.import/gray.png-0b0e68cb37be509a3e3b9f9b5e90b254.stex" ]
 
 [params]
 

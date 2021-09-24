@@ -4,15 +4,14 @@
 [ext_resource path="res://entities/player/player.gd" type="Script" id=2]
 [ext_resource path="res://assets/texture/light.png" type="Texture" id=3]
 
-[sub_resource type="OccluderPolygon2D" id=5]
+[sub_resource type="OccluderPolygon2D" id=1]
 closed = false
 polygon = PoolVector2Array( -1.60839, -8, -7, -8, -7, 0, -3.04697, 0 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4, 7 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "air"
+[sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -27,7 +26,7 @@ tracks/0/keys = {
 "values": [ 41 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -42,7 +41,7 @@ tracks/0/keys = {
 "values": [ 40 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -69,14 +68,14 @@ light_mask = 2
 texture = ExtResource( 1 )
 hframes = 10
 vframes = 10
-frame = 40
+frame = 41
 
 [node name="sight" type="Position2D" parent="Sprite"]
 position = Vector2( 0.992126, -3.77008 )
 
 [node name="blindspot" type="LightOccluder2D" parent="Sprite/sight"]
 position = Vector2( 4, 4 )
-occluder = SubResource( 5 )
+occluder = SubResource( 1 )
 
 [node name="light" type="Light2D" parent="Sprite/sight"]
 scale = Vector2( 100, 100 )
@@ -86,10 +85,10 @@ shadow_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/air = SubResource( 2 )
-anims/idle = SubResource( 3 )
-anims/run = SubResource( 4 )
+anims/air = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/run = SubResource( 5 )
