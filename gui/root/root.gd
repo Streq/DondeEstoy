@@ -14,10 +14,13 @@ onready var game_viewport = $display_container/main_viewport/game_container/game
 
 func _ready():
 	get_tree().connect("screen_resized", self, "_screen_resized")
-	game_container.rect_size = Vector2(main_vp_width, main_vp_height)
-	_screen_resized()
+	reset()
 	_set_game_scene(current_scene)
 	
+func reset():
+	game_container.rect_size = Vector2(main_vp_width, main_vp_height)
+	_screen_resized()
+
 
 func _screen_resized():
 	var window_size = OS.get_window_size()

@@ -20,11 +20,13 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://autoload/globals.gd"
+Signals="*res://autoload/signals.gd"
+Scenes="*res://autoload/scenes/scenes.tscn"
 
 [display]
 
-window/size/width=1280
-window/size/height=640
+window/size/width=640
+window/size/height=320
 
 [input]
 

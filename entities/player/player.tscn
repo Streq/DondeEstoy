@@ -78,6 +78,7 @@ position = Vector2( 4, 4 )
 occluder = SubResource( 1 )
 
 [node name="light" type="Light2D" parent="Sprite/sight"]
+visible = false
 scale = Vector2( 100, 100 )
 texture = ExtResource( 3 )
 mode = 3
