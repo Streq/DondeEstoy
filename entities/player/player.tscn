@@ -74,6 +74,7 @@ frame = 41
 position = Vector2( 0.992126, -3.77008 )
 
 [node name="blindspot" type="LightOccluder2D" parent="Sprite/sight"]
+visible = false
 position = Vector2( 4, 4 )
 occluder = SubResource( 1 )
 

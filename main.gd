@@ -11,3 +11,4 @@ func _ready():
 	$root.main_vp_width = Globals.DISPLAY_WIDTH
 	$root.main_vp_height = Globals.DISPLAY_HEIGHT
 	$root.reset()
+	Signals.emit_signal("push_scene", Scenes.game.instance())
