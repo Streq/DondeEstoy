@@ -21,6 +21,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "run"
+length = 0.8
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -28,14 +30,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 71 ]
+"values": [ 71, 73, 72, 73 ]
 }
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4, 8 )
+extents = Vector2( 4, 7 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 3, 6 )
@@ -59,6 +61,7 @@ anims/idle = SubResource( 1 )
 anims/run = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
 shape = SubResource( 3 )
 
 [node name="kill_zone" type="Area2D" parent="."]
