@@ -56,6 +56,6 @@ func look_for_player():
 		var player = players[0] 
 		target = player.position
 		var space_state = get_world_2d().direct_space_state
-		var result = space_state.intersect_ray(global_position, target, [self])
+		var result = space_state.intersect_ray(global_position, target, get_tree().get_nodes_in_group("monster"))
 		spotted = (result.has("collider") and result.collider == player)
 		

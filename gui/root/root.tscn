@@ -6,7 +6,7 @@
 [node name="root" type="CanvasLayer"]
 script = ExtResource( 2 )
 main_vp_width = 640
-main_vp_height = 480
+main_vp_height = 320
 
 [node name="display_container" type="ViewportContainer" parent="."]
 stretch = true

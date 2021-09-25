@@ -14,6 +14,9 @@ var air_movement = 0.5
 
 var jump := false
 
+func _ready():
+	$Sprite/sight/light.visible = true
+
 func _physics_process(delta):
 	var move_dir = float(Input.is_action_pressed("right"))-float(Input.is_action_pressed("left"))
 	var look = float(Input.is_action_pressed("down"))-float(Input.is_action_pressed("up"))
@@ -57,3 +60,6 @@ func _physics_process(delta):
 func _input(event):
 	if event.is_action_pressed("A"):
 		jump = true
+
+func die():
+	Signals.emit_signal("death")
