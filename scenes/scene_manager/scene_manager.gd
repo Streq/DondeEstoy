@@ -5,6 +5,11 @@ var scenes = []
 
 var _current = null
 
+func _ready():
+	Signals.connect("push_scene",self,"push")
+	Signals.connect("pop_scene",self,"pop")
+	Signals.connect("clear_scene",self,"clear")
+
 func push(scene):
 	scenes.push_back(scene)
 	_activate(scene)

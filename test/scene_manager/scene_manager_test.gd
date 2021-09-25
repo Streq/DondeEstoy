@@ -6,12 +6,13 @@ export (PackedScene) var scene
 func _ready():
 	$scene_manager.push(scene.instance())
 
-var pause:bool = false
 
-func _input(event):
-	if event.is_action_pressed("B"):
-		if !pause:
-			$scene_manager.push(Scenes.death.instance())
-		else:
-			$scene_manager.pop()
-		pause = !pause
+#var pause:bool = false
+
+#func _input(event):
+#	if event.is_action_pressed("B"):
+#		if !pause:
+#			$scene_manager.push(Scenes.death.instance())
+#		else:
+#			$scene_manager.pop()
+#		pause = !pause
