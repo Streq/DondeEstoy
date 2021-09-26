@@ -1,4 +1,5 @@
 extends Node2D
+signal retry()
 
 var retry = false
 
@@ -12,5 +13,4 @@ func _ready():
 	
 func _input(event):
 	if retry and event.is_action_pressed("A"):
-		Signals.emit_signal("clear_scene")
-		Signals.emit_signal("push_scene",Scenes.game.instance())
+		Signals.emit_signal("pop_scene")
