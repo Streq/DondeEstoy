@@ -67,3 +67,7 @@ func _input(event):
 
 func die():
 	Signals.emit_signal("death")
+
+
+func _on_hitbox_body_entered(body):
+	die()
