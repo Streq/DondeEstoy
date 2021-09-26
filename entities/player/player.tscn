@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/texture/sprite_sheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=2]
@@ -57,6 +57,9 @@ tracks/0/keys = {
 "values": [ 50, 51, 52, 53 ]
 }
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 4, 6 )
+
 [node name="player" type="KinematicBody2D" groups=[
 "player",
 ]]
@@ -94,3 +97,10 @@ autoplay = "idle"
 anims/air = SubResource( 3 )
 anims/idle = SubResource( 4 )
 anims/run = SubResource( 5 )
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource( 6 )
