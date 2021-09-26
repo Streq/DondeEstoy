@@ -22,14 +22,14 @@ func trigger():
 	else:
 		open()
 
-func _input(event):
-	if event.is_action_pressed("B"):
-		trigger()
 
 
 func _on_body_entered(body):
-	pass # Replace with function body.
+	if body.is_in_group("player"):
+		body.connect("action", self, "trigger")
 
 
 func _on_body_exited(body):
-	pass # Replace with function body.
+	if body.is_in_group("player"):
+		body.disconnect("action", self, "trigger")
+
