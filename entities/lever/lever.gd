@@ -6,12 +6,12 @@ signal off()
 var is_on = false
 
 func on():
-	$sprite.scale.x = 1
+	$sprite.scale.x = -1
 	is_on = true
 	emit_signal("on")
 
 func off():
-	$sprite.scale.x = -1
+	$sprite.scale.x = 1
 	is_on = false
 	emit_signal("off")
 
