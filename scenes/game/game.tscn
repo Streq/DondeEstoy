@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/game/game.gd" type="Script" id=1]
 [ext_resource path="res://test/fov/fov_test_with_monster.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/0/0.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/win/win.tscn" type="PackedScene" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -10,4 +12,4 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-levels = [ ExtResource( 2 ) ]
+levels = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]

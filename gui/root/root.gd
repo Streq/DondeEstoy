@@ -5,7 +5,7 @@ export (int) var main_vp_width
 export (int) var main_vp_height
 export (PackedScene) var game_scene
 
-onready var current_scene = game_scene.instance()
+var current_scene = null
 
 # don't forget to use stretch mode 'disabled' and aspect 'ignore'
 onready var viewport_container = $display_container
@@ -15,7 +15,8 @@ onready var game_viewport = $display_container/main_viewport/game_container/game
 func _ready():
 	get_tree().connect("screen_resized", self, "_screen_resized")
 	reset()
-	_set_game_scene(current_scene)
+#	call_deferred("_set_game_scene",current_scene)
+	_set_game_scene(game_scene.instance())
 	
 func reset():
 	game_container.rect_size = Vector2(main_vp_width, main_vp_height)
@@ -42,6 +43,7 @@ func _screen_resized():
 	game_container.rect_position = viewport_container.rect_size * 0.5 / scale - game_container.rect_size*0.5
 	
 func _set_game_scene(scene):
-	game_viewport.remove_child(current_scene)
+	if current_scene:
+		game_viewport.remove_child(current_scene)
 	current_scene = scene
 	game_viewport.add_child(scene)

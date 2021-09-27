@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal action()
+
 var velocity := Vector2.ZERO
 var look_dir := Vector2.RIGHT
 
@@ -60,6 +62,12 @@ func _physics_process(delta):
 func _input(event):
 	if event.is_action_pressed("A"):
 		jump = true
+	if event.is_action_pressed("B"):
+		emit_signal("action")
 
 func die():
 	Signals.emit_signal("death")
+
+
+func _on_hitbox_body_entered(body):
+	die()

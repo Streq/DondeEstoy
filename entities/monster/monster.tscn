@@ -2,9 +2,9 @@
 
 [ext_resource path="res://assets/texture/sprite_sheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/monster/monster.gd" type="Script" id=2]
-[ext_resource path="res://entities/monster/kill_zone.gd" type="Script" id=3]
+[ext_resource path="res://entities/kill_zone/kill_zone.gd" type="Script" id=3]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=5]
 resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -20,7 +20,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-resource_name = "run"
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -40,7 +39,7 @@ tracks/0/keys = {
 extents = Vector2( 4, 7 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 3, 6 )
+extents = Vector2( 3, 5 )
 
 [node name="monster" type="KinematicBody2D" groups=[
 "monster",
@@ -57,7 +56,7 @@ frame = 70
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/idle = SubResource( 1 )
+anims/idle = SubResource( 5 )
 anims/run = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -69,5 +68,3 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill_zone"]
 shape = SubResource( 4 )
-
-[connection signal="body_entered" from="kill_zone" to="kill_zone" method="_on_body_entered"]
