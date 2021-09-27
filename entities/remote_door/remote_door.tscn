@@ -25,10 +25,10 @@ visible = false
 texture = ExtResource( 1 )
 hframes = 10
 vframes = 10
-frame = 19
+frame = 9
 
 [node name="closed" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 10
 vframes = 10
-frame = 18
+frame = 8
