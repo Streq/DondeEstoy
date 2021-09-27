@@ -21,7 +21,7 @@ func _on_death():
 func _restart_level():
 	_current_level.queue_free()
 	_current_level = levels[_current_index].instance()
-	add_child(_current_level)
+	call_deferred("add_child",_current_level)
 
 func _next_level():
 	_current_index += 1

@@ -12,11 +12,11 @@ func _ready():
 
 func push(scene):
 	scenes.push_back(scene)
-	_activate(scene)
+	call_deferred("_activate",scene)
 
 func pop():
 	scenes.pop_back().queue_free()
-	_activate(scenes.back())
+	call_deferred("_activate",scenes.back())
 
 func clear():
 	for scene in scenes:
