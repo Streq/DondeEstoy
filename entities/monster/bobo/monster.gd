@@ -5,7 +5,7 @@ var look_dir := Vector2.RIGHT
 
 var gravity := 20000
 var run_max_speed := 10000
-var jump_speed := 8000
+var jump_speed := 6000
 
 var air := false
 
@@ -17,19 +17,33 @@ var jump := false
 var target := Vector2.ZERO
 var spotted := false
 
+var jump_timer := 0.0
+
 func _physics_process(delta):
 	look_for_player()
+	
+	if spotted and (target.y < position.y or velocity.x == 0.0):
+		jump_timer += delta
+	else:
+		jump_timer = 0
+		jump = false
+	
+	if jump_timer > 0.5:
+		jump = true
+	
 	
 	var move_dir = float(spotted) * sign(target.x-position.x)
 	
 	if move_dir:
 		if !air:
 			velocity.x = lerp(velocity.x, run_max_speed*move_dir, delta)
+			if jump:
+				velocity.y -= jump_speed
 		else:
 			velocity.x = lerp(velocity.x, run_max_speed*move_dir, delta*air_movement)
 	elif !air:
 		velocity.x = lerp(velocity.x, 0, delta*ground_friction)
-		
+	
 	$Sprite.scale.x = look_dir.x
 	
 	velocity.y += gravity*delta

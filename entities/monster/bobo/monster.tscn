@@ -1,11 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/texture/sprite_sheet.png" type="Texture" id=1]
-[ext_resource path="res://entities/monster/monster.gd" type="Script" id=2]
+[ext_resource path="res://entities/monster/bobo/monster.gd" type="Script" id=2]
 [ext_resource path="res://entities/kill_zone/kill_zone.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
-resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
