@@ -10,6 +10,7 @@
 [node name="1" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 show_behind_parent = true
 margin_right = 640.0
 margin_bottom = 320.0
