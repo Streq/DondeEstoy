@@ -4,10 +4,10 @@
 [ext_resource path="res://assets/texture/sprite_sheet.png" type="Texture" id=2]
 [ext_resource path="res://entities/kill_zone/kill_zone.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 5 )
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 0.01
 
 [node name="pathfinder" type="KinematicBody2D" groups=[
@@ -21,7 +21,7 @@ script = ExtResource( 1 )
 collision_layer = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="kill_zone"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -30,4 +30,4 @@ vframes = 10
 frame = 74
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
