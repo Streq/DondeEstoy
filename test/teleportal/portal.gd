@@ -22,6 +22,9 @@ func _process(delta):
 	render_polygon.polygon[2] = polygon[2] + polygon[0].direction_to(polygon[2])*64000
 	render_polygon.polygon[3] = polygon[1] + polygon[0].direction_to(polygon[1])*64000
 	
+
+	
+
 func _on_cull_body_shape_entered(body_id, body, body_shape, local_shape):
 	i += 1 
 	print_debug(i)

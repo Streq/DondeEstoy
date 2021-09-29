@@ -78,10 +78,23 @@ frame = 41
 position = Vector2( 0.992126, -3.77008 )
 
 [node name="blindspot" type="LightOccluder2D" parent="Sprite/sight"]
+light_mask = 3
 position = Vector2( 4, 4 )
 occluder = SubResource( 1 )
+light_mask = 3
 
-[node name="light" type="Light2D" parent="Sprite/sight"]
+[node name="light2" type="Light2D" parent="Sprite/sight"]
+light_mask = 2
+scale = Vector2( 10000, 10000 )
+texture = ExtResource( 3 )
+mode = 3
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_item_cull_mask = 2
+
+[node name="light" type="Light2D" parent="Sprite/sight" groups=[
+"pov",
+]]
 visible = false
 scale = Vector2( 100, 100 )
 texture = ExtResource( 3 )
