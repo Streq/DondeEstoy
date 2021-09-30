@@ -14,3 +14,4 @@ func _ready():
 func _input(event):
 	if retry and event.is_action_pressed("A"):
 		Signals.emit_signal("pop_scene")
+		Signals.emit_signal("restart_level")

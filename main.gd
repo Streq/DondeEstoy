@@ -12,3 +12,10 @@ func _ready():
 	$root.main_vp_height = Globals.DISPLAY_HEIGHT
 	$root.reset()
 	Signals.emit_signal("push_scene", Scenes.game.instance())
+
+
+func _input(event):
+	if event.is_action_pressed("next_level"):
+		Signals.emit_signal("next_level")
+	if event.is_action_pressed("kill"):
+		Signals.emit_signal("death")

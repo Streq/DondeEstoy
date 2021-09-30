@@ -8,6 +8,7 @@ onready var render_polygon = $render_polygon
 var i = 0
 
 func _ready():
+	yield(get_tree(),"idle_frame")
 	var tree = get_tree()
 	if tree.has_group("pov"):
 		pov = tree.get_nodes_in_group("pov")[0]

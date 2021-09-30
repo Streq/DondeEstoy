@@ -11,11 +11,12 @@ var player
 func _ready():
 	Signals.connect("death",self,"_on_death")
 	Signals.connect("next_level",self,"_next_level")
+	Signals.connect("restart_level",self,"_restart_level")
+	
 	_current_level = levels[_current_index].instance()
 	add_child(_current_level)
 
 func _on_death():
-	_restart_level()
 	Signals.emit_signal("push_scene", Scenes.death.instance())
 	
 func _restart_level():
