@@ -71,3 +71,6 @@ func die():
 
 func _on_hitbox_body_entered(body):
 	die()
+
+func get_pov():
+	return to_global($Sprite/sight.position)
