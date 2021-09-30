@@ -15,14 +15,15 @@ func _ready():
 
 
 func _process(delta):
-	polygon[0] = pov.global_position
-	$cull/CollisionPolygon2D.polygon[0] = polygon[0]
-	render_polygon.polygon[0] = polygon[1]
-	render_polygon.polygon[1] = polygon[2]
-	render_polygon.polygon[2] = polygon[2] + polygon[0].direction_to(polygon[2])*64000
-	render_polygon.polygon[3] = polygon[1] + polygon[0].direction_to(polygon[1])*64000
+	if pov:
+		polygon[0] = pov.global_position
+		$cull/CollisionPolygon2D.polygon[0] = polygon[0]
+		render_polygon.polygon[0] = polygon[1]
+		render_polygon.polygon[1] = polygon[2]
+		render_polygon.polygon[2] = polygon[2] + polygon[0].direction_to(polygon[2])*64000
+		render_polygon.polygon[3] = polygon[1] + polygon[0].direction_to(polygon[1])*64000
+		render_polygon.uv = render_polygon.polygon
 	
-
 	
 
 func _on_cull_body_shape_entered(body_id, body, body_shape, local_shape):
