@@ -35,7 +35,7 @@ position = Vector2( 588, 84 )
 position = Vector2( 32, 48 )
 
 [node name="game_label" parent="." instance=ExtResource( 5 )]
-light_mask = 2
+light_mask = 4
 margin_left = 8.0
 margin_top = 64.0
 margin_right = 136.0

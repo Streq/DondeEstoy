@@ -67,7 +67,7 @@ collision_mask = 5
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-light_mask = 2
+light_mask = 4
 z_index = 1
 texture = ExtResource( 1 )
 hframes = 10
@@ -83,18 +83,14 @@ position = Vector2( 4, 4 )
 occluder = SubResource( 1 )
 light_mask = 3
 
-[node name="light" type="Light2D" parent="Sprite/sight" groups=[
-"pov",
-]]
+[node name="light" type="Light2D" parent="Sprite/sight"]
 visible = false
 scale = Vector2( 100, 100 )
 texture = ExtResource( 3 )
 mode = 3
 shadow_enabled = true
 
-[node name="light2" type="Light2D" parent="Sprite/sight" groups=[
-"pov",
-]]
+[node name="light2" type="Light2D" parent="Sprite/sight"]
 light_mask = 2
 scale = Vector2( 100, 100 )
 texture = ExtResource( 3 )

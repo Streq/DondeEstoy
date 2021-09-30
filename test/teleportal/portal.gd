@@ -27,11 +27,8 @@ func _process(delta):
 	
 
 func _on_cull_body_shape_entered(body_id, body, body_shape, local_shape):
-	i += 1 
-	print_debug(i)
-
 #	print_debug(i,", body_id: ", body_id, ", body: ", body, ", body_shape: ", body_shape,", local_shape: ", local_shape)
-
+	pass
 
 
 func _on_cull_body_entered(body):
