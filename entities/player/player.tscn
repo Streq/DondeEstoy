@@ -85,15 +85,15 @@ light_mask = 3
 
 [node name="light" type="Light2D" parent="Sprite/sight"]
 visible = false
-scale = Vector2( 100, 100 )
 texture = ExtResource( 3 )
+texture_scale = 50.0
 mode = 3
 shadow_enabled = true
 
 [node name="light2" type="Light2D" parent="Sprite/sight"]
 light_mask = 2
-scale = Vector2( 100, 100 )
 texture = ExtResource( 3 )
+texture_scale = 50.0
 mode = 3
 range_item_cull_mask = 2
 shadow_enabled = true

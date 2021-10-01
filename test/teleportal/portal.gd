@@ -1,30 +1,33 @@
 extends Line2D
 
+export (PackedScene) var world
 
-var pov = null
+var world_instance
+
 const colors := PoolColorArray([Color.white,Color.white,Color.white])
 onready var polygon := PoolVector2Array([Vector2.ZERO, self.points[0], self.points[1]])
 onready var render_polygon = $render_polygon
+
+onready var pov = $view/pov
+
+var player = null
+
 var i = 0
 
 func _ready():
-	yield(get_tree(),"idle_frame")
-	var tree = get_tree()
-	if tree.has_group("pov"):
-		pov = tree.get_nodes_in_group("pov")[0]
-	$cull/CollisionPolygon2D.polygon = polygon
-
-
+	world_instance = world.instance()
+	$view.add_child(world_instance)
+	
 func _process(delta):
-	if pov:
-		polygon[0] = pov.global_position
-		$cull/CollisionPolygon2D.polygon[0] = polygon[0]
+	if player:
+		pov.global_transform = player.get_pov()
+		polygon[0] = to_local(pov.global_position)
 		render_polygon.polygon[0] = polygon[1]
 		render_polygon.polygon[1] = polygon[2]
 		render_polygon.polygon[2] = polygon[2] + polygon[0].direction_to(polygon[2])*64000
 		render_polygon.polygon[3] = polygon[1] + polygon[0].direction_to(polygon[1])*64000
-		render_polygon.uv = render_polygon.polygon
-	
+		
+		render_polygon.uv = global_transform.xform(render_polygon.polygon)
 	
 
 func _on_cull_body_shape_entered(body_id, body, body_shape, local_shape):

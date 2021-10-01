@@ -135,8 +135,11 @@ kill={
 
 [layer_names]
 
+2d_render/layer_1="game"
 2d_physics/layer_1="player"
+2d_render/layer_2="game illusion"
 2d_physics/layer_2="monster"
+2d_render/layer_3="hud"
 2d_physics/layer_3="terrain"
 2d_physics/layer_4="killzone"
 
