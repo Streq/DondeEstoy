@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://test/teleportal/portal.gd" type="Script" id=1]
-[ext_resource path="res://test/teleportal/Area2D.gd" type="Script" id=2]
+[ext_resource path="res://test/teleportal/teleportal_visual/portal.gd" type="Script" id=1]
+[ext_resource path="res://test/teleportal/teleportal_visual/Area2D.gd" type="Script" id=2]
 [ext_resource path="res://assets/texture/light.png" type="Texture" id=3]
 
 [sub_resource type="ViewportTexture" id=1]
@@ -42,6 +42,7 @@ occluder = SubResource( 2 )
 light_mask = 2
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
