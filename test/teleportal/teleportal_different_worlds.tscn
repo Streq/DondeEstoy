@@ -1,17 +1,26 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://terrain/terrain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/texture/background.png" type="Texture" id=2]
 [ext_resource path="res://assets/texture/terrain_autotile.png" type="Texture" id=3]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://test/teleportal/dreamland/dreamland.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/texture/sprite_sheet.png" type="Texture" id=5]
 [ext_resource path="res://test/teleportal/teleport_area.gd" type="Script" id=6]
 [ext_resource path="res://assets/texture/light.png" type="Texture" id=7]
 [ext_resource path="res://test/teleportal/portal_to_world.gd" type="Script" id=8]
-[ext_resource path="res://test/teleportal/teleportal_visual/Area2D.gd" type="Script" id=9]
 [ext_resource path="res://test/teleportal/teleportal_different_worlds.gd" type="Script" id=10]
+[ext_resource path="res://assets/texture/gray.png" type="Texture" id=11]
+
+[sub_resource type="ViewportTexture" id=52]
+viewport_path = NodePath("vp_dreamland")
+
+[sub_resource type="OccluderPolygon2D" id=53]
+closed = false
+cull_mode = 2
+polygon = PoolVector2Array( 0, -10.6667, 8, -10.6667, 8, 8, -240, 8 )
 
 [sub_resource type="RectangleShape2D" id=48]
+extents = Vector2( 6, 10 )
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 3, 3, 1, 3, 1, 1, 3, 1 )
@@ -515,62 +524,44 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 9/shapes = [  ]
 9/z_index = 0
 
-[sub_resource type="ViewportTexture" id=52]
-viewport_path = NodePath("vp_dreamland")
-
-[sub_resource type="OccluderPolygon2D" id=53]
-closed = false
-cull_mode = 2
-polygon = PoolVector2Array( 0, -10.6667, 8, -10.6667, 8, 8, -240, 8 )
-
-[sub_resource type="RectangleShape2D" id=54]
-extents = Vector2( 1, 8 )
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 10 )
 
-[node name="vp_dreamland" type="Viewport" parent="."]
-size = Vector2( 640, 320 )
-render_target_v_flip = true
+[node name="dreamland" type="Node2D" parent="."]
 
-[node name="dreamland" parent="vp_dreamland" instance=ExtResource( 5 )]
+[node name="Sprite" type="Sprite" parent="dreamland"]
+position = Vector2( 408, 144 )
+texture = ExtResource( 5 )
+flip_h = true
+hframes = 10
+vframes = 10
+frame = 40
 
-[node name="pov" type="Light2D" parent="vp_dreamland"]
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
-texture_scale = 50.0
-mode = 3
-shadow_enabled = true
+[node name="terrain" parent="dreamland" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -262049, 8, 1, -262048, 8, 2, -262047, 8, 393219, -196510, 8, 262145, -196509, 8, 2, -196508, 8, 2, -196507, 8, 3, 852065, 8, 0, 1638510, 8, 393217, 1638511, 8, 2, 1638512, 8, 2, 1638513, 8, 2, 1638514, 8, 2, 1638515, 8, 2, 1638516, 8, 3, 1704042, 8, 1, 1704043, 8, 2, 1704044, 8, 2, 1704045, 8, 262147, 2031715, 8, 0, 2228333, 8, 65536, 2293869, 8, 131072, 2293885, 8, 0, 2359405, 8, 196608, 2490464, 8, 1, 2490465, 8, 2, 2490466, 8, 2, 2490467, 8, 2, 2490468, 8, 2, 2490469, 8, 2, 2490470, 8, 2, 2490471, 8, 2, 2490472, 8, 2, 2490473, 8, 2, 2490474, 8, 2, 2490475, 8, 2, 2490476, 8, 3, 2490481, 8, 0, 2490494, 8, 0, 3276834, 8, 1, 3276835, 8, 2, 3276836, 8, 2, 3276837, 8, 2, 3276838, 8, 2, 3276839, 8, 2, 3276840, 8, 2, 3276841, 8, 2, 3276842, 8, 2, 3276843, 8, 2, 3276844, 8, 2, 3276845, 8, 2, 3276846, 8, 2, 3276847, 8, 2, 3276848, 8, 2, 3276849, 8, 2, 3276850, 8, 2, 3276851, 8, 2, 3276852, 8, 2, 3276853, 8, 2, 3276854, 8, 2, 3276855, 8, 2, 3276856, 8, 2, 3276857, 8, 2, 3276858, 8, 2, 3276859, 8, 2, 3276860, 8, 2, 3276861, 8, 2, 3276862, 8, 2, 3276863, 8, 2, 3276864, 8, 2, 3276865, 8, 2, 3276866, 8, 2, 3276867, 8, 2, 3276868, 8, 2, 3276869, 8, 2, 3276870, 8, 2, 3276871, 8, 2, 3276872, 8, 2, 3276873, 8, 2, 3276874, 8, 2, 3276875, 8, 2, 3276876, 8, 2, 3276877, 8, 2, 3276878, 8, 2, 3276879, 8, 2, 3276880, 8, 2, 3276881, 8, 2, 3276882, 8, 2, 3276883, 8, 2, 3276884, 8, 2, 3276885, 8, 2, 3276886, 8, 2, 3276887, 8, 2, 3276888, 8, 2, 3276889, 8, 2, 3276890, 8, 2, 3276891, 8, 2, 3276892, 8, 2, 3276893, 8, 2, 3276894, 8, 2, 3276895, 8, 2, 3276896, 8, 2, 3276897, 8, 2, 3276898, 8, 2, 3276899, 8, 65538, 3276900, 8, 65538, 3276901, 8, 65538, 3276902, 8, 65538, 3276903, 8, 65538, 3276904, 8, 65538, 3276905, 8, 65538, 3276906, 8, 65538, 3276907, 8, 65538, 3276908, 8, 65538, 3276909, 8, 2, 3276910, 8, 65538, 3276911, 8, 65538, 3276912, 8, 65538, 3276913, 8, 65539, 3276917, 8, 65537, 3276918, 8, 2, 3276919, 8, 2, 3276920, 8, 65538, 3276921, 8, 65538, 3276922, 8, 65539, 3276948, 8, 393217, 3276949, 8, 2, 3276950, 8, 2, 3276951, 8, 2, 3276952, 8, 2, 3276953, 8, 65539, 3342435, 8, 196609, 3342436, 8, 196610, 3342437, 8, 196610, 3342438, 8, 196610, 3342439, 8, 196610, 3342440, 8, 196610, 3342441, 8, 196610, 3342442, 8, 196610, 3342443, 8, 196610, 3342444, 8, 196611, 3342446, 8, 196609, 3342447, 8, 196610, 3342448, 8, 196610, 3342449, 8, 196610, 3342450, 8, 2, 3342451, 8, 2, 3342452, 8, 2, 3342453, 8, 196611, 3342456, 8, 196609, 3342457, 8, 196610, 3342458, 8, 196610, 3342459, 8, 2, 3342460, 8, 2, 3342461, 8, 2, 3342462, 8, 2, 3342463, 8, 2, 3342464, 8, 2, 3342465, 8, 2, 3342466, 8, 2, 3342467, 8, 2, 3342468, 8, 2, 3342469, 8, 2, 3342470, 8, 2, 3342471, 8, 2, 3342472, 8, 2, 3342473, 8, 2, 3342474, 8, 2, 3342475, 8, 2, 3342476, 8, 2, 3342477, 8, 2, 3342478, 8, 2, 3342479, 8, 2, 3342480, 8, 2, 3342481, 8, 2, 3342482, 8, 2, 3342483, 8, 262147, 3342489, 8, 196609, 3342490, 8, 2, 3342491, 8, 2, 3342492, 8, 2, 3342493, 8, 2, 3342494, 8, 2, 3342495, 8, 2, 3342496, 8, 2, 3342497, 8, 2, 3342498, 8, 2, 3342499, 8, 2, 3342500, 8, 2, 3342501, 8, 2, 3342502, 8, 2, 3342503, 8, 2, 3342504, 8, 2, 3342505, 8, 2, 3342506, 8, 3, 3932259, 8, 1, 3932260, 8, 393219, 3932266, 8, 393218, 3932270, 8, 393217, 3932271, 8, 3, 3932276, 8, 65536, 3932286, 8, 393216, 3932300, 8, 65536, 3932302, 8, 393216, 3932304, 8, 1, 3932305, 8, 2, 3932306, 8, 393219, 3997797, 8, 262150, 3997803, 8, 262150, 3997805, 8, 262151, 3997812, 8, 131072, 3997821, 8, 327682, 3997836, 8, 131073, 3997837, 8, 262147, 3997843, 8, 262145, 3997844, 8, 2, 3997845, 8, 393219, 4063267, 8, 1, 4063268, 8, 393219, 4063334, 8, 262150, 4063340, 8, 458758, 4063348, 8, 131072, 4063357, 8, 458752, 4063372, 8, 458752, 4063382, 8, 262145, 4063383, 8, 2, 4063384, 8, 393219, 4128805, 8, 262145, 4128806, 8, 2, 4128807, 8, 3, 4128871, 8, 262150, 4128875, 8, 327682, 4128877, 8, 262150, 4128884, 8, 131072, 4128892, 8, 262151, 4128907, 8, 327682, 4128921, 8, 262145, 4128922, 8, 2, 4128923, 8, 393219, 4194408, 8, 262145, 4194409, 8, 393219, 4194411, 8, 131072, 4194414, 8, 262150, 4194420, 8, 131072, 4194427, 8, 262151, 4194442, 8, 65537, 4194443, 8, 131075, 4194460, 8, 262145, 4194461, 8, 393219, 4259946, 8, 262145, 4259947, 8, 196611, 4259951, 8, 262150, 4259956, 8, 458752, 4259962, 8, 262151, 4259978, 8, 458753, 4259979, 8, 131075, 4259998, 8, 262145, 4259999, 8, 393219, 4325488, 8, 262150, 4325491, 8, 327682, 4325496, 8, 393217, 4325497, 8, 262147, 4325513, 8, 327686, 4325515, 8, 458752, 4325536, 8, 262145, 4325537, 8, 393219, 4391025, 8, 262145, 4391026, 8, 2, 4391027, 8, 131075, 4391030, 8, 393217, 4391031, 8, 262147, 4391048, 8, 262151, 4391050, 8, 262149, 4391074, 8, 327680, 4456563, 8, 131073, 4456564, 8, 2, 4456565, 8, 262147, 4456583, 8, 262151, 4456586, 8, 131072, 4456609, 8, 393217, 4456610, 8, 196611, 4522099, 8, 131072, 4522118, 8, 262151, 4522122, 8, 131072, 4522142, 8, 393217, 4522143, 8, 2, 4522144, 8, 262147, 4587635, 8, 131072, 4587653, 8, 262151, 4587658, 8, 131072, 4587676, 8, 393217, 4587677, 8, 262147, 4653171, 8, 131072, 4653187, 8, 393217, 4653188, 8, 262147, 4653194, 8, 131072, 4653210, 8, 393217, 4653211, 8, 262147, 4718707, 8, 131072, 4718722, 8, 262151, 4718730, 8, 131072, 4718744, 8, 393217, 4718745, 8, 262147, 4784243, 8, 131072, 4784257, 8, 262151, 4784266, 8, 131072, 4784278, 8, 393217, 4784279, 8, 262147, 4849779, 8, 458752, 4849792, 8, 262151, 4849802, 8, 458754, 4849812, 8, 393217, 4849813, 8, 262147, 4915314, 8, 327682, 4915326, 8, 393217, 4915327, 8, 262147, 4915339, 8, 327680, 4915344, 8, 393217, 4915345, 8, 2, 4915346, 8, 2, 4915347, 8, 262147, 4980850, 8, 131072, 4980861, 8, 262151, 4980875, 8, 196609, 4980876, 8, 2, 4980877, 8, 2, 4980878, 8, 2, 4980879, 8, 262147, 5046386, 8, 131072, 5046396, 8, 262151, 5111922, 8, 131072, 5111931, 8, 262151, 5177458, 8, 131072, 5177466, 8, 262151, 5242994, 8, 458754, 5243000, 8, 393217, 5243001, 8, 262147, 5308531, 8, 327680, 5308535, 8, 262151, 5374067, 8, 131072, 5374070, 8, 262151, 5439603, 8, 196609, 5439604, 8, 2, 5439605, 8, 262147 )
 
-[node name="world" type="Node2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="world"]
-position = Vector2( 384, 192 )
-script = ExtResource( 6 )
-world1 = NodePath("../../vp_dreamland/dreamland")
-world2 = NodePath("..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world/Area2D"]
-shape = SubResource( 48 )
-
-[node name="terrain" parent="world" instance=ExtResource( 1 )]
-tile_set = SubResource( 51 )
-tile_data = PoolIntArray( 2424925, 8, 1, 2424926, 8, 2, 2424927, 8, 2, 2424928, 8, 65539, 2490464, 8, 131072, 2556000, 8, 131072, 2621536, 8, 131072, 2687072, 8, 131072, 2752608, 8, 131072, 2818144, 8, 131072, 2883680, 8, 131072, 2949216, 8, 131072, 3014752, 8, 131072, 3080288, 8, 131072, 3145824, 8, 131072, 3211360, 8, 131072, 3276833, 8, 1, 3276834, 8, 2, 3276835, 8, 2, 3276836, 8, 2, 3276837, 8, 2, 3276838, 8, 2, 3276839, 8, 2, 3276840, 8, 2, 3276841, 8, 2, 3276842, 8, 2, 3276843, 8, 2, 3276844, 8, 2, 3276845, 8, 2, 3276846, 8, 2, 3276847, 8, 2, 3276848, 8, 2, 3276849, 8, 2, 3276850, 8, 2, 3276851, 8, 2, 3276852, 8, 2, 3276853, 8, 2, 3276854, 8, 2, 3276855, 8, 2, 3276856, 8, 2, 3276857, 8, 2, 3276858, 8, 2, 3276859, 8, 2, 3276860, 8, 2, 3276861, 8, 2, 3276862, 8, 2, 3276863, 8, 2, 3276864, 8, 2, 3276865, 8, 2, 3276866, 8, 2, 3276867, 8, 2, 3276868, 8, 2, 3276869, 8, 2, 3276870, 8, 2, 3276871, 8, 2, 3276872, 8, 2, 3276873, 8, 2, 3276874, 8, 2, 3276875, 8, 2, 3276876, 8, 2, 3276877, 8, 2, 3276878, 8, 2, 3276879, 8, 2, 3276880, 8, 2, 3276881, 8, 2, 3276882, 8, 2, 3276883, 8, 2, 3276884, 8, 2, 3276885, 8, 2, 3276886, 8, 2, 3276887, 8, 2, 3276888, 8, 2, 3276889, 8, 2, 3276890, 8, 2, 3276891, 8, 2, 3276892, 8, 2, 3276893, 8, 2, 3276894, 8, 2, 3276895, 8, 2, 3276896, 8, 196611, 4063267, 8, 1, 4063268, 8, 393219, 4128805, 8, 262145, 4128806, 8, 2, 4128807, 8, 3 )
-
-[node name="TextureRect" type="TextureRect" parent="world"]
+[node name="TextureRect" type="TextureRect" parent="dreamland"]
 show_behind_parent = true
 margin_right = 640.0
 margin_bottom = 320.0
-texture = ExtResource( 2 )
+texture = ExtResource( 11 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="entry_point" type="Position2D" parent="world"]
+[node name="entry_point" type="Position2D" parent="dreamland"]
 position = Vector2( 128, 144 )
 
-[node name="portal" type="Line2D" parent="world"]
+[node name="Sprite2" type="Sprite" parent="dreamland"]
+position = Vector2( 424, 192 )
+texture = ExtResource( 5 )
+flip_h = true
+hframes = 10
+vframes = 10
+frame = 40
+
+[node name="portal" type="Line2D" parent="dreamland"]
 light_mask = 2
 position = Vector2( 376, 176 )
 scale = Vector2( 1, 3 )
@@ -581,36 +572,94 @@ script = ExtResource( 8 )
 pov_path = NodePath("../../vp_dreamland/pov")
 player_path = NodePath("../../player")
 
-[node name="render_polygon" type="Polygon2D" parent="world/portal"]
+[node name="render_polygon" type="Polygon2D" parent="dreamland/portal"]
 light_mask = 2
 texture = SubResource( 52 )
 polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 uv = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 vertex_colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
 
-[node name="cull" type="Area2D" parent="world/portal"]
-collision_layer = 0
-collision_mask = 5
+[node name="LightOccluder2D" type="LightOccluder2D" parent="dreamland/portal"]
+light_mask = 2
+scale = Vector2( -1, 1 )
+occluder = SubResource( 53 )
+light_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="world/portal/cull"]
-polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0 )
+[node name="Area2D" type="Area2D" parent="dreamland/portal"]
+position = Vector2( -8, 5.33333 )
+scale = Vector2( 1, 0.333333 )
+script = ExtResource( 6 )
+world1 = NodePath("../..")
+world2 = NodePath("../../../vp_dreamland/world")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="world/portal"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dreamland/portal/Area2D"]
+shape = SubResource( 48 )
+
+[node name="vp_dreamland" type="Viewport" parent="."]
+size = Vector2( 640, 320 )
+render_target_v_flip = true
+
+[node name="pov" type="Light2D" parent="vp_dreamland"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+texture_scale = 50.0
+mode = 3
+shadow_enabled = true
+
+[node name="world" type="Node2D" parent="vp_dreamland"]
+
+[node name="terrain" parent="vp_dreamland/world" instance=ExtResource( 1 )]
+tile_set = SubResource( 51 )
+tile_data = PoolIntArray( 3276833, 8, 1, 3276834, 8, 2, 3276835, 8, 2, 3276836, 8, 2, 3276837, 8, 2, 3276838, 8, 2, 3276839, 8, 2, 3276840, 8, 2, 3276841, 8, 2, 3276842, 8, 2, 3276843, 8, 2, 3276844, 8, 2, 3276845, 8, 2, 3276846, 8, 2, 3276847, 8, 2, 3276848, 8, 2, 3276849, 8, 2, 3276850, 8, 2, 3276851, 8, 2, 3276852, 8, 2, 3276853, 8, 2, 3276854, 8, 2, 3276855, 8, 2, 3276856, 8, 2, 3276857, 8, 2, 3276858, 8, 2, 3276859, 8, 2, 3276860, 8, 2, 3276861, 8, 2, 3276862, 8, 2, 3276863, 8, 2, 3276864, 8, 2, 3276865, 8, 2, 3276866, 8, 2, 3276867, 8, 2, 3276868, 8, 2, 3276869, 8, 2, 3276870, 8, 2, 3276871, 8, 2, 3276872, 8, 2, 3276873, 8, 2, 3276874, 8, 2, 3276875, 8, 2, 3276876, 8, 2, 3276877, 8, 2, 3276878, 8, 2, 3276879, 8, 2, 3276880, 8, 2, 3276881, 8, 2, 3276882, 8, 2, 3276883, 8, 2, 3276884, 8, 2, 3276885, 8, 2, 3276886, 8, 2, 3276887, 8, 2, 3276888, 8, 2, 3276889, 8, 2, 3276890, 8, 2, 3276891, 8, 2, 3276892, 8, 2, 3276893, 8, 2, 3276894, 8, 2, 3276895, 8, 2, 3276896, 8, 3, 4063267, 8, 1, 4063268, 8, 393219, 4128805, 8, 262145, 4128806, 8, 2, 4128807, 8, 3 )
+
+[node name="TextureRect" type="TextureRect" parent="vp_dreamland/world"]
+show_behind_parent = true
+margin_right = 640.0
+margin_bottom = 320.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="entry_point" type="Position2D" parent="vp_dreamland/world"]
+position = Vector2( 128, 144 )
+
+[node name="portal" type="Line2D" parent="vp_dreamland/world"]
+light_mask = 2
+position = Vector2( 376, 176 )
+scale = Vector2( 1, 3 )
+points = PoolVector2Array( 0, -8, 0, 8 )
+width = 1.0
+default_color = Color( 0.4, 0.501961, 1, 1 )
+script = ExtResource( 8 )
+pov_path = NodePath("../../pov")
+player_path = NodePath("../../../player")
+
+[node name="render_polygon" type="Polygon2D" parent="vp_dreamland/world/portal"]
+light_mask = 2
+texture = SubResource( 52 )
+polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
+uv = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
+vertex_colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="vp_dreamland/world/portal"]
 light_mask = 2
 occluder = SubResource( 53 )
 light_mask = 2
 
-[node name="Area2D" type="Area2D" parent="world/portal"]
-collision_mask = 0
-script = ExtResource( 9 )
+[node name="Area2D" type="Area2D" parent="vp_dreamland/world/portal"]
+position = Vector2( 8, 5.33333 )
+scale = Vector2( 1, 0.333333 )
+script = ExtResource( 6 )
+world1 = NodePath("../..")
+world2 = NodePath("../../../../dreamland")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world/portal/Area2D"]
-shape = SubResource( 54 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vp_dreamland/world/portal/Area2D"]
+shape = SubResource( 48 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 152, 192 )
+position = Vector2( 440, 192 )
 
-[connection signal="body_entered" from="world/Area2D" to="world/Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="world/portal/cull" to="world/portal" method="_on_cull_body_entered"]
-[connection signal="body_shape_entered" from="world/portal/cull" to="world/portal" method="_on_cull_body_shape_entered"]
-[connection signal="body_entered" from="world/portal/Area2D" to="world/portal/Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="dreamland/portal/Area2D" to="dreamland/portal/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="vp_dreamland/world/portal/Area2D" to="vp_dreamland/world/portal/Area2D" method="_on_body_entered"]

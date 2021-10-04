@@ -13,6 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	var player = get_tree().get_nodes_in_group("player")[0]
-	player.position = get_global_mouse_position()
-	player.velocity = Vector2.ZERO
+#	var player = get_tree().get_nodes_in_group("player")[0]
+#	player.position = get_global_mouse_position()
+#	player.velocity = Vector2.ZERO
+	pass
