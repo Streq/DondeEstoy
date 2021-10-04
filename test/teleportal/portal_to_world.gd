@@ -19,7 +19,8 @@ var i = 0
 func _process(delta):
 	if player:
 		pov.global_transform = player.get_pov()
-		polygon[0] = to_local(pov.global_position)
+		var local = to_local(pov.global_position)
+		polygon[0] = local#Vector2(floor(local.x),floor(local.y))
 		render_polygon.polygon[0] = polygon[1]
 		render_polygon.polygon[1] = polygon[2]
 		render_polygon.polygon[2] = polygon[2] + polygon[0].direction_to(polygon[2])*64000

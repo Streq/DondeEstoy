@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/texture/sprite_sheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=2]
@@ -7,6 +7,9 @@
 [sub_resource type="OccluderPolygon2D" id=1]
 closed = false
 polygon = PoolVector2Array( -1.60839, -8, -7, -8, -7, 0, -3.04697, 0 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 0.5, 0.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4, 7 )
@@ -98,6 +101,13 @@ mode = 3
 range_item_cull_mask = 2
 shadow_enabled = true
 shadow_item_cull_mask = 2
+
+[node name="Area2D" type="Area2D" parent="Sprite/sight" groups=[
+"player_pov",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/sight/Area2D"]
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
