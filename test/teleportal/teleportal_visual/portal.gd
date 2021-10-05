@@ -21,11 +21,11 @@ func _ready():
 func _process(delta):
 	if player:
 		pov.global_transform = player.get_pov()
-		polygon[0] = to_local(pov.global_position)
-		render_polygon.polygon[0] = polygon[1]
-		render_polygon.polygon[1] = polygon[2]
-		render_polygon.polygon[2] = polygon[2] + polygon[0].direction_to(polygon[2])*64000
-		render_polygon.polygon[3] = polygon[1] + polygon[0].direction_to(polygon[1])*64000
+		polygon[0] = to_local(pov.global_position).floor()
+		render_polygon.polygon[0] = polygon[1].floor()
+		render_polygon.polygon[1] = polygon[2].floor()
+		render_polygon.polygon[2] = (polygon[2] + polygon[0].direction_to(polygon[2])*64000).floor()
+		render_polygon.polygon[3] = (polygon[1] + polygon[0].direction_to(polygon[1])*64000).floor()
 		
 		render_polygon.uv = global_transform.xform(render_polygon.polygon)
 	
