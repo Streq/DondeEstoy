@@ -8,7 +8,7 @@
 [sub_resource type="OccluderPolygon2D" id=1]
 closed = false
 cull_mode = 2
-polygon = PoolVector2Array( 0, -10.6667, 8, -10.6667, 8, 8, 0, 8 )
+polygon = PoolVector2Array( 0, -9, 0, -9, 0, 9, 0, 9 )
 
 [sub_resource type="ViewportTexture" id=2]
 viewport_path = NodePath("world_container")
@@ -21,12 +21,14 @@ script = ExtResource( 2 )
 
 [node name="occluder_w1" type="LightOccluder2D" parent="."]
 light_mask = 2
+position = Vector2( -0.001, 0 )
 scale = Vector2( -1, 1 )
 occluder = SubResource( 1 )
 light_mask = 2
 
 [node name="occluder_w2" type="LightOccluder2D" parent="."]
 light_mask = 2
+position = Vector2( 0.001, 0 )
 occluder = SubResource( 1 )
 light_mask = 2
 
@@ -34,8 +36,7 @@ light_mask = 2
 
 [node name="entrance" type="Line2D" parent="center"]
 light_mask = 2
-position = Vector2( -4, 0 )
-points = PoolVector2Array( 0, -8, 0, 8 )
+points = PoolVector2Array( 0, -9, 0, 9 )
 width = 1.0
 default_color = Color( 0.4, 0.501961, 1, 1 )
 script = ExtResource( 3 )
@@ -48,7 +49,7 @@ uv = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 vertex_colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
 
 [node name="Area2D" type="Area2D" parent="center/entrance"]
-position = Vector2( -4, 0 )
+position = Vector2( -9, 0 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="center/entrance/Area2D"]
