@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/game/game.gd" type="Script" id=1]
-[ext_resource path="res://levels/1/1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://levels/0/0.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/persecuta/1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/bobo/0.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/win/win.tscn" type="PackedScene" id=4]
 [ext_resource path="res://test/teleportal/teleportal_visual/teleportal_test.tscn" type="PackedScene" id=5]
 
