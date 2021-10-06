@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://test/teleportal/teleportal_general/teleportal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/teleportal/teleportal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://terrain/terrain.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/texture/background.png" type="Texture" id=4]
