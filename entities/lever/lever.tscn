@@ -2,12 +2,12 @@
 
 [ext_resource path="res://assets/texture/sprite_sheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/lever/lever.gd" type="Script" id=2]
+[ext_resource path="res://entities/actionable/actionable.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 8 )
-
-[node name="lever" type="Area2D"]
+[node name="lever" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="actionable" parent="." instance=ExtResource( 3 )]
 
 [node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -15,5 +15,4 @@ hframes = 10
 vframes = 10
 frame = 6
 
-[node name="area" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+[connection signal="triggered" from="actionable" to="." method="trigger"]

@@ -2,6 +2,7 @@
 
 [ext_resource path="res://assets/texture/sprite_sheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/level_portal/level_portal.gd" type="Script" id=2]
+[ext_resource path="res://entities/actionable/actionable.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -20,11 +21,10 @@ tracks/0/keys = {
 "values": [ 10, 11, 12, 13, 14, 15, 16, 17 ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 8 )
-
-[node name="level_portal" type="Area2D"]
+[node name="level_portal" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="actionable" parent="." instance=ExtResource( 3 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
@@ -36,5 +36,4 @@ hframes = 10
 vframes = 10
 frame = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+[connection signal="triggered" from="actionable" to="." method="trigger"]

@@ -1,4 +1,4 @@
-extends "res://entities/actionable/actionable.gd"
+extends Node2D
 
 signal on()
 signal off()
