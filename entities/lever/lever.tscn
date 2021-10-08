@@ -9,6 +9,9 @@ script = ExtResource( 2 )
 
 [node name="actionable" parent="." instance=ExtResource( 3 )]
 
+[node name="interact_message" parent="actionable" index="1"]
+message = "X - jalar"
+
 [node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 10
@@ -16,3 +19,5 @@ vframes = 10
 frame = 6
 
 [connection signal="triggered" from="actionable" to="." method="trigger"]
+
+[editable path="actionable"]

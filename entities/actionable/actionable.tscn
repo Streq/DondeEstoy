@@ -16,5 +16,6 @@ shape = SubResource( 1 )
 visible = false
 light_mask = 0
 position = Vector2( 0, -16 )
+message = null
 
 [connection signal="triggereable" from="." to="interact_message" method="_on_triggereable"]

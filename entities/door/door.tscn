@@ -40,3 +40,8 @@ shape = SubResource( 1 )
 occluder = SubResource( 2 )
 
 [node name="actionable" parent="." instance=ExtResource( 3 )]
+
+[node name="interact_message" parent="actionable" index="1"]
+message = "X - abrir"
+
+[editable path="actionable"]

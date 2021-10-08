@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shadow_layer_3.png-e78c53d9374da1c77f46b9967b3d2a65.stex"
+path="res://.import/shadow_1.png-f76d26082939542f24e120249dac7765.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/texture/shadow_layer_3.png"
-dest_files=[ "res://.import/shadow_layer_3.png-e78c53d9374da1c77f46b9967b3d2a65.stex" ]
+source_file="res://assets/texture/shadow_1.png"
+dest_files=[ "res://.import/shadow_1.png-f76d26082939542f24e120249dac7765.stex" ]
 
 [params]
 

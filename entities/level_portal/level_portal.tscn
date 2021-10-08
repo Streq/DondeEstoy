@@ -26,6 +26,9 @@ script = ExtResource( 2 )
 
 [node name="actionable" parent="." instance=ExtResource( 3 )]
 
+[node name="interact_message" parent="actionable" index="1"]
+message = "X - entrar"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/idle = SubResource( 1 )
@@ -37,3 +40,5 @@ vframes = 10
 frame = 10
 
 [connection signal="triggered" from="actionable" to="." method="trigger"]
+
+[editable path="actionable"]
