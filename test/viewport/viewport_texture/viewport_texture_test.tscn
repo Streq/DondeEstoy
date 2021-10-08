@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/texture/sprite_sheet.png" type="Texture" id=1]
+[ext_resource path="res://test/viewport/viewport_texture/viewport_texture_test.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="0" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="0"]
+margin_right = 1748.0
+margin_bottom = 808.0
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="vp" type="TextureRect" parent="1"]
+margin_left = 172.0
+margin_top = 64.0
+margin_right = 344.0
+margin_bottom = 204.0
+stretch_mode = 3
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

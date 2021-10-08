@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/texture/sprite_sheet.png" type="Texture" id=1]
+[ext_resource path="res://entities/polyphemus/eye.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "blank"
+tracks/0/type = "value"
+tracks/0/path = NodePath("pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("pupil:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -3, 2 ), Vector2( 2, 1 ), Vector2( 0, -3 ), Vector2( 3, 0 ), Vector2( -3, 0 ), Vector2( 0, 2 ) ]
+}
+
+[node name="eye" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="eye" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 10
+vframes = 10
+frame = 78
+
+[node name="pupil" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 10
+vframes = 10
+frame = 77
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "blank"
+anims/blank = SubResource( 1 )
+anims/searching = SubResource( 2 )

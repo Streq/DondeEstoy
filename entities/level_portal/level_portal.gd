@@ -1,4 +1,4 @@
-extends "res://entities/actionable/actionable.gd"
+extends Node2D
 
 func trigger():
 	Signals.emit_signal("next_level")

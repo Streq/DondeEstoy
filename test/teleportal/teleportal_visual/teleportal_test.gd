@@ -8,7 +8,8 @@ extends Node2D
 func _physics_process(delta):
 	var tree = get_tree()
 	var player = tree.get_nodes_in_group("player")[0]
-	var povs = tree.get_nodes_in_group("pov")
+	$portal.player = player
 	
-	for pov in povs:
-		pov.global_position = player.get_pov()
+#	player.position = get_global_mouse_position()
+#	player.velocity = Vector2.ZERO
+#	player.get_node("Sprite/sight/blindspot").visible = false

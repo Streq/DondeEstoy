@@ -22,7 +22,7 @@ var jump_timer := 0.0
 func _physics_process(delta):
 	look_for_player()
 	
-	if spotted and (target.y < position.y or velocity.x == 0.0):
+	if spotted and (target.y < global_position.y or velocity.x == 0.0):
 		jump_timer += delta
 	else:
 		jump_timer = 0
@@ -32,7 +32,7 @@ func _physics_process(delta):
 		jump = true
 	
 	
-	var move_dir = float(spotted) * sign(target.x-position.x)
+	var move_dir = float(spotted) * sign(target.x-global_position.x)
 	
 	if move_dir:
 		if !air:
@@ -68,8 +68,10 @@ func look_for_player():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size():
 		var player = players[0] 
-		target = player.position
+		target = player.global_position
 		var space_state = get_world_2d().direct_space_state
 		var result = space_state.intersect_ray(global_position, target, get_tree().get_nodes_in_group("monster"))
 		spotted = (result.has("collider") and result.collider == player)
 		
+func die():
+	queue_free()

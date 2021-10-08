@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/texture/light.png" type="Texture" id=1]
+[ext_resource path="res://test/teleportal/teleportal_general/area.gd" type="Script" id=2]
+[ext_resource path="res://entities/teleportal/teleportal.gd" type="Script" id=3]
+[ext_resource path="res://entities/teleportal/entrance.gd" type="Script" id=4]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+closed = false
+cull_mode = 2
+polygon = PoolVector2Array( 0, -9, 0, -9, 0, 9, 0, 9 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("world_container")
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6, 9 )
+
+[node name="teleportal" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="occluder_w1" type="LightOccluder2D" parent="."]
+light_mask = 2
+position = Vector2( -0.001, 0 )
+scale = Vector2( -1, 1 )
+occluder = SubResource( 1 )
+light_mask = 2
+
+[node name="occluder_w2" type="LightOccluder2D" parent="."]
+light_mask = 2
+position = Vector2( 0.001, 0 )
+occluder = SubResource( 1 )
+light_mask = 2
+
+[node name="center" type="Position2D" parent="."]
+
+[node name="entrance" type="Line2D" parent="center"]
+light_mask = 2
+points = PoolVector2Array( 0, -9, 0, 9 )
+width = 1.0
+default_color = Color( 0.4, 0.501961, 1, 1 )
+script = ExtResource( 4 )
+
+[node name="render_polygon" type="Polygon2D" parent="center/entrance"]
+light_mask = 2
+texture = SubResource( 2 )
+polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
+uv = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
+vertex_colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
+
+[node name="Area2D" type="Area2D" parent="center/entrance"]
+position = Vector2( -9, 0 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="center/entrance/Area2D"]
+shape = SubResource( 3 )
+
+[node name="world_container" type="Viewport" parent="."]
+size = Vector2( 640, 320 )
+render_target_v_flip = true
+
+[node name="pov" type="Light2D" parent="world_container"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+texture_scale = 50.0
+mode = 3
+shadow_enabled = true
+
+[node name="world" type="Node" parent="world_container"]
+
+[connection signal="area_entered" from="center/entrance/Area2D" to="." method="_on_area_entered"]

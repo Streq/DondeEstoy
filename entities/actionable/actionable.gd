@@ -1,5 +1,7 @@
 extends Area2D
 
+
+signal triggereable(val)
 signal triggered()
 
 func _ready():
@@ -9,11 +11,13 @@ func _ready():
 func _body_entered(body):
 	if body.is_in_group("player"):
 		body.connect("action", self, "trigger")
+		emit_signal("triggereable", true)
 
 
 func _body_exited(body):
 	if body.is_in_group("player"):
 		body.disconnect("action", self, "trigger")
+		emit_signal("triggereable", false)
 
 func trigger():
 	emit_signal("triggered")
