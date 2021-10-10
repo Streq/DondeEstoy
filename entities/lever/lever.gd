@@ -4,6 +4,7 @@ signal on()
 signal off()
 
 var is_on = false
+export(bool) var one_time_use = false
 
 func on():
 	$sprite.scale.x = -1
@@ -16,6 +17,8 @@ func off():
 	emit_signal("off")
 
 func trigger():
+	if one_time_use:
+		$actionable.queue_free()
 	if is_on:
 		off()
 	else:
