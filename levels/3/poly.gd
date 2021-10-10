@@ -9,7 +9,7 @@ func _physics_process(delta):
 		$right_eye.look(target.global_position)
 		$hand/position.global_position = target.global_position + target.velocity * delta * delta * 5
 		
-		if !$hand/AnimationPlayer.is_playing():
+		if !$hand/AnimationPlayer.is_playing() or $hand/AnimationPlayer.current_animation == "hide":
 			$hand/AnimationPlayer.play("grab")
 	else:
 		if $hand/AnimationPlayer.is_playing() and $hand/AnimationPlayer.current_animation == "grab":

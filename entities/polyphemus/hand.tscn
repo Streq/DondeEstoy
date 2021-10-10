@@ -1,27 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/texture/hand.png" type="Texture" id=1]
 [ext_resource path="res://entities/kill_zone/kill_zone.tscn" type="PackedScene" id=2]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="Animation" id=2]
-resource_name = "creep_in"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:z_index")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -17, 0 ]
-}
-
-[sub_resource type="Animation" id=3]
 length = 2.0
 step = 0.05
 tracks/0/type = "value"
@@ -45,7 +29,7 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.7, 1.25, 2 ),
 "transitions": PoolRealArray( 7, 1, 1, 1 ),
-"update": 0,
+"update": 3,
 "values": [ 0.0, -45.0, -45.0, 0.0 ]
 }
 tracks/2/type = "value"
@@ -69,7 +53,7 @@ tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0, 0.7, 1.25, 2 ),
 "transitions": PoolRealArray( 7, 1, 1, 1 ),
-"update": 0,
+"update": 3,
 "values": [ -17, 0, 0, -17 ]
 }
 tracks/4/type = "value"
@@ -93,11 +77,11 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0, 0.7, 1.25, 2 ),
 "transitions": PoolRealArray( 7, 1, 1, 1 ),
-"update": 0,
+"update": 3,
 "values": [ Vector2( 0.9, 0.9 ), Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 0.9, 0.9 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "hide"
 length = 2.0
 tracks/0/type = "value"
@@ -155,7 +139,7 @@ z_index = -17
 [node name="position" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="position"]
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 1 )
 hframes = 2
 
@@ -165,11 +149,10 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="position/kill_zone"]
 position = Vector2( 1, 4 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/creep_in = SubResource( 2 )
-anims/grab = SubResource( 3 )
-anims/hide = SubResource( 4 )
+anims/grab = SubResource( 2 )
+anims/hide = SubResource( 3 )
 
 [editable path="position/kill_zone"]

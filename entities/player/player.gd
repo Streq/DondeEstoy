@@ -3,7 +3,8 @@ extends KinematicBody2D
 signal action()
 
 var velocity := Vector2.ZERO
-var look_dir := Vector2.RIGHT
+
+export (float, -1, 1, 2) var look_dir := 1.0
 
 var gravity := 20000
 var run_max_speed := 10000
@@ -39,7 +40,7 @@ func _physics_process(delta):
 			velocity.y -= jump_speed
 	
 	
-	$Sprite.scale.x = look_dir.x
+	$Sprite.scale.x = look_dir
 	
 	velocity.y += gravity*delta
 	
@@ -54,7 +55,7 @@ func _physics_process(delta):
 	if air:
 		$AnimationPlayer.play("air")
 	elif move_dir:
-		look_dir.x = move_dir
+		look_dir = move_dir
 		$AnimationPlayer.play("run")
 	else:
 		$AnimationPlayer.play("idle")
@@ -67,6 +68,7 @@ func _input(event):
 
 func die():
 	Signals.emit_signal("death")
+#	get_tree().reload_current_scene()
 
 
 func _on_hitbox_body_entered(body):
