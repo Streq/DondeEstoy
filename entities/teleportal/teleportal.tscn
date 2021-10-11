@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/texture/light.png" type="Texture" id=1]
-[ext_resource path="res://test/teleportal/teleportal_general/area.gd" type="Script" id=2]
 [ext_resource path="res://entities/teleportal/teleportal.gd" type="Script" id=3]
 [ext_resource path="res://entities/teleportal/entrance.gd" type="Script" id=4]
 
@@ -37,7 +36,7 @@ light_mask = 2
 [node name="entrance" type="Line2D" parent="center"]
 light_mask = 2
 points = PoolVector2Array( 0, -9, 0, 9 )
-width = 1.0
+width = 0.0
 default_color = Color( 0.4, 0.501961, 1, 1 )
 script = ExtResource( 4 )
 
@@ -50,7 +49,7 @@ vertex_colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
 
 [node name="Area2D" type="Area2D" parent="center/entrance"]
 position = Vector2( -9, 0 )
-script = ExtResource( 2 )
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="center/entrance/Area2D"]
 shape = SubResource( 3 )
@@ -69,3 +68,4 @@ shadow_enabled = true
 [node name="world" type="Node" parent="world_container"]
 
 [connection signal="area_entered" from="center/entrance/Area2D" to="." method="_on_area_entered"]
+[connection signal="body_entered" from="center/entrance/Area2D" to="." method="_on_body_entered"]

@@ -17,16 +17,19 @@ func _ready():
 
 func _on_area_entered(area):
 	if area.is_in_group("player_pov"):
-		call_deferred("teleport")
-		
+		call_deferred("teleport_player")
 #		area.connect("area_entered", self, "_on_area_entered")
 
+func _on_body_entered(body):
+	if body.is_in_group("monster"):
+		call_deferred("teleport",body)
+		
 func set_world_to(world):
 	if w2_parent.get_child_count()>0:
 		w2_parent.remove_child(w2_parent.get_child(0))
 	w2_parent.add_child(world)
 
-func teleport():
+func teleport_player():
 	$center.transform.x *= -1.0	
 	var w1 = get_parent()
 	var w1_parent = w1.get_parent()
@@ -46,3 +49,7 @@ func teleport():
 	occ_w1.visible = !occ_w1.visible
 	occ_w2.visible = !occ_w2.visible
 		
+func teleport(body):
+	var w2 = w2_parent.get_child(0)
+	body.get_parent().remove_child(body)
+	w2.add_child(body)
