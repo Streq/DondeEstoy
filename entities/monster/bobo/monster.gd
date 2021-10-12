@@ -19,6 +19,8 @@ var spotted := false
 
 var jump_timer := 0.0
 
+export (int, LAYERS_2D_PHYSICS) var layer_2d_visible
+
 func _physics_process(delta):
 	look_for_player()
 	
@@ -70,7 +72,7 @@ func look_for_player():
 		var player = players[0] 
 		target = player.global_position
 		var space_state = get_world_2d().direct_space_state
-		var result = space_state.intersect_ray(global_position, target, get_tree().get_nodes_in_group("monster"))
+		var result = space_state.intersect_ray(global_position, target, get_tree().get_nodes_in_group("monster"), layer_2d_visible)
 		spotted = (result.has("collider") and result.collider == player)
 		
 func die():
