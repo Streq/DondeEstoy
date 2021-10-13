@@ -8,6 +8,8 @@ export (float, -1, 1, 2) var look_dir := 1.0
 
 var gravity := 20000
 var run_max_speed := 10000
+var crouch_max_speed := 2000
+var walk_max_speed := 6000
 var jump_speed := 8000
 
 var air := false
@@ -17,18 +19,31 @@ var air_movement = 0.5
 
 var jump := false
 
+var crouching = false
+
+var walking = false
+
 func _ready():
 	$Sprite/sight/light.visible = true
 
 func _physics_process(delta):
 	var move_dir = float(Input.is_action_pressed("right"))-float(Input.is_action_pressed("left"))
 	var look = float(Input.is_action_pressed("down"))-float(Input.is_action_pressed("up"))
+	var crouch = Input.is_action_pressed("L") or !can_stand()
+	var walk = Input.is_action_pressed("R")
 	
 	$Sprite/sight.rotation_degrees = look*60
 	
 	if move_dir:
 		if !air:
-			velocity.x = lerp(velocity.x, run_max_speed*move_dir, delta)
+			if (crouching or walking) and sign(move_dir)!=sign(velocity.x):
+				velocity.x = lerp(velocity.x, 0, delta*ground_friction)
+			if crouching:
+				velocity.x = lerp(velocity.x, crouch_max_speed*move_dir, delta)
+			elif walk:
+				velocity.x = lerp(velocity.x, walk_max_speed*move_dir, delta)
+			else:
+				velocity.x = lerp(velocity.x, run_max_speed*move_dir, delta)
 		else:
 			velocity.x = lerp(velocity.x, run_max_speed*move_dir, delta*air_movement)
 	elif !air:
@@ -55,10 +70,30 @@ func _physics_process(delta):
 	if air:
 		$AnimationPlayer.play("air")
 	elif move_dir:
-		look_dir = move_dir
-		$AnimationPlayer.play("run")
+		if (!crouching 
+			or abs(velocity.x)<crouch_max_speed*0.5 
+			or sign(move_dir) == sign(velocity.x)
+		):
+			if !walk:
+				look_dir = move_dir
+		if crouch:
+			if velocity.x > run_max_speed*0.6:
+				$AnimationPlayer.play("crouch_slide")
+			else:
+				$AnimationPlayer.play("crouch_walk")
+		else:
+			if walk:
+				$AnimationPlayer.play("walk")
+			else:
+				$AnimationPlayer.play("run")
 	else:
-		$AnimationPlayer.play("idle")
+		if crouch:
+			if velocity.x > run_max_speed*0.6:
+				$AnimationPlayer.play("crouch_slide")
+			else:
+				$AnimationPlayer.play("crouch")
+		else:
+			$AnimationPlayer.play("idle")
 
 func _input(event):
 	if event.is_action_pressed("A"):
@@ -76,3 +111,21 @@ func _on_hitbox_body_entered(body):
 
 func get_pov():
 	return $Sprite/sight/light.global_transform
+
+func crouch(val):
+	if crouching == val:
+		return
+	crouching = val
+	if val:
+		$Sprite.position.y = 5
+		$crouch_shape.disabled = false
+		yield(get_tree(),"idle_frame")
+		$stand_shape.disabled = true
+	else:
+		$Sprite.position.y = 0
+		$stand_shape.disabled = false
+		yield(get_tree(),"idle_frame")
+		$crouch_shape.disabled = true
+	
+func can_stand():
+	return $stand_area.count == 0
