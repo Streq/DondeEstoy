@@ -9,6 +9,7 @@ export (float, -1, 1, 2) var look_dir := 1.0
 var gravity := 20000
 var run_max_speed := 10000
 var crouch_max_speed := 2000
+var walk_max_speed := 6000
 var jump_speed := 8000
 
 var air := false
@@ -20,6 +21,8 @@ var jump := false
 
 var crouching = false
 
+var walking = false
+
 func _ready():
 	$Sprite/sight/light.visible = true
 
@@ -27,15 +30,20 @@ func _physics_process(delta):
 	var move_dir = float(Input.is_action_pressed("right"))-float(Input.is_action_pressed("left"))
 	var look = float(Input.is_action_pressed("down"))-float(Input.is_action_pressed("up"))
 	var crouch = Input.is_action_pressed("L") or !can_stand()
+	var walk = Input.is_action_pressed("R")
 	
 	$Sprite/sight.rotation_degrees = look*60
 	
 	if move_dir:
 		if !air:
-			if !crouching:
-				velocity.x = lerp(velocity.x, run_max_speed*move_dir, delta)
-			else:
+			if (crouching or walking) and sign(move_dir)!=sign(velocity.x):
+				velocity.x = lerp(velocity.x, 0, delta*ground_friction)
+			if crouching:
 				velocity.x = lerp(velocity.x, crouch_max_speed*move_dir, delta)
+			elif walk:
+				velocity.x = lerp(velocity.x, walk_max_speed*move_dir, delta)
+			else:
+				velocity.x = lerp(velocity.x, run_max_speed*move_dir, delta)
 		else:
 			velocity.x = lerp(velocity.x, run_max_speed*move_dir, delta*air_movement)
 	elif !air:
@@ -62,15 +70,22 @@ func _physics_process(delta):
 	if air:
 		$AnimationPlayer.play("air")
 	elif move_dir:
-		if !crouching or abs(velocity.x)<crouch_max_speed*0.5 or sign(move_dir) == sign(velocity.x):
-			look_dir = move_dir
+		if (!crouching 
+			or abs(velocity.x)<crouch_max_speed*0.5 
+			or sign(move_dir) == sign(velocity.x)
+		):
+			if !walk:
+				look_dir = move_dir
 		if crouch:
 			if velocity.x > run_max_speed*0.6:
 				$AnimationPlayer.play("crouch_slide")
 			else:
 				$AnimationPlayer.play("crouch_walk")
 		else:
-			$AnimationPlayer.play("run")
+			if walk:
+				$AnimationPlayer.play("walk")
+			else:
+				$AnimationPlayer.play("run")
 	else:
 		if crouch:
 			if velocity.x > run_max_speed*0.6:
