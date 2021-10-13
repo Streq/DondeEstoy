@@ -62,14 +62,21 @@ func _physics_process(delta):
 	if air:
 		$AnimationPlayer.play("air")
 	elif move_dir:
-		look_dir = move_dir
+		if !crouching or abs(velocity.x)<crouch_max_speed*0.5 or sign(move_dir) == sign(velocity.x):
+			look_dir = move_dir
 		if crouch:
-			$AnimationPlayer.play("crouch_walk")
+			if velocity.x > run_max_speed*0.6:
+				$AnimationPlayer.play("crouch_slide")
+			else:
+				$AnimationPlayer.play("crouch_walk")
 		else:
 			$AnimationPlayer.play("run")
 	else:
 		if crouch:
-			$AnimationPlayer.play("crouch")
+			if velocity.x > run_max_speed*0.6:
+				$AnimationPlayer.play("crouch_slide")
+			else:
+				$AnimationPlayer.play("crouch")
 		else:
 			$AnimationPlayer.play("idle")
 
