@@ -16,7 +16,7 @@ extents = Vector2( 2, 1 )
 extents = Vector2( 4, 7 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 4, 4 )
+extents = Vector2( 4, 3.5 )
 
 [sub_resource type="Animation" id=13]
 length = 0.5
@@ -241,7 +241,7 @@ z_index = 1
 texture = ExtResource( 1 )
 hframes = 10
 vframes = 10
-frame = 46
+frame = 44
 
 [node name="sight" type="Position2D" parent="Sprite"]
 position = Vector2( 0.992126, -3.77008 )
@@ -281,7 +281,7 @@ position = Vector2( 0, 1 )
 shape = SubResource( 3 )
 
 [node name="crouch_shape" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 4 )
+position = Vector2( 0, 4.5 )
 shape = SubResource( 12 )
 disabled = true
 

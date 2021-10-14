@@ -68,7 +68,8 @@ func _physics_process(delta):
 	if is_on_wall():
 		velocity.x = 0
 	if air:
-		$AnimationPlayer.play("air")
+		if can_stand():
+			$AnimationPlayer.play("air")
 	elif move_dir:
 		if (!crouching 
 			or abs(velocity.x)<crouch_max_speed*0.5 
