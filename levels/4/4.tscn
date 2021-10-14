@@ -9,24 +9,24 @@
 [ext_resource path="res://entities/remote_door/lever_door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/level_portal/level_portal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/lever/lever.tscn" type="PackedScene" id=9]
-[ext_resource path="res://levels/3/creature_trigger.gd" type="Script" id=10]
-[ext_resource path="res://entities/polyphemus/hand.tscn" type="PackedScene" id=11]
+[ext_resource path="res://entities/giant_creature/creature_trigger.gd" type="Script" id=10]
+[ext_resource path="res://entities/giant_creature/hand.tscn" type="PackedScene" id=11]
 [ext_resource path="res://background/darkness/background_darkness.tscn" type="PackedScene" id=12]
 [ext_resource path="res://levels/4/event_area.gd" type="Script" id=13]
-[ext_resource path="res://levels/3/poly.gd" type="Script" id=14]
-[ext_resource path="res://entities/polyphemus/eye.tscn" type="PackedScene" id=15]
+[ext_resource path="res://entities/giant_creature/giant_creature.gd" type="Script" id=14]
+[ext_resource path="res://entities/giant_creature/eye.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 60, 20 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 8 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 16, 36 )
 
 [node name="Node2D" type="Node2D"]
@@ -112,18 +112,18 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="creature_trigger/giant_creature/vision"]
 position = Vector2( -12, 32 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="creature_trigger/giant_creature/vision"]
 position = Vector2( 44, 32 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="event_area" type="Area2D" parent="creature_trigger/giant_creature"]
 position = Vector2( 524, 12 )
 script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="creature_trigger/giant_creature/event_area"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="monster" parent="creature_trigger/giant_creature/event_area" instance=ExtResource( 5 )]
 position = Vector2( -620, 8 )

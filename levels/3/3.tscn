@@ -4,12 +4,12 @@
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://terrain/terrain.tscn" type="PackedScene" id=3]
 [ext_resource path="res://background/background_tilemap.tscn" type="PackedScene" id=4]
-[ext_resource path="res://entities/polyphemus/giant_creature.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/giant_creature/giant_creature.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/level_portal/level_portal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/remote_door/lever_door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/monster/bobo/monster.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/lever/lever.tscn" type="PackedScene" id=9]
-[ext_resource path="res://levels/3/creature_trigger.gd" type="Script" id=10]
+[ext_resource path="res://entities/giant_creature/creature_trigger.gd" type="Script" id=10]
 
 [node name="Node2D" type="Node2D"]
 
