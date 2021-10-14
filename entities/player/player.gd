@@ -29,14 +29,14 @@ func _ready():
 func _physics_process(delta):
 	var move_dir = float(Input.is_action_pressed("right"))-float(Input.is_action_pressed("left"))
 	var look = float(Input.is_action_pressed("down"))-float(Input.is_action_pressed("up"))
-	var crouch = Input.is_action_pressed("L") or !can_stand()
-	var walk = Input.is_action_pressed("R")
+	var crouch = Input.is_action_pressed("R") or !can_stand()
+	var walk = Input.is_action_pressed("L")
 	
 	$Sprite/sight.rotation_degrees = look*60
 	
 	if move_dir:
 		if !air:
-			if (crouching or walking) and sign(move_dir)!=sign(velocity.x):
+			if (crouching or walk) and sign(move_dir)!=sign(velocity.x):
 				velocity.x = lerp(velocity.x, 0, delta*ground_friction)
 			if crouching:
 				velocity.x = lerp(velocity.x, crouch_max_speed*move_dir, delta)
@@ -68,7 +68,8 @@ func _physics_process(delta):
 	if is_on_wall():
 		velocity.x = 0
 	if air:
-		$AnimationPlayer.play("air")
+		if can_stand():
+			$AnimationPlayer.play("air")
 	elif move_dir:
 		if (!crouching 
 			or abs(velocity.x)<crouch_max_speed*0.5 
