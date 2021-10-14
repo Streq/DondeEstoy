@@ -12,3 +12,4 @@ func _ready():
 	
 func trigger():
 	add_child(creature)
+	pass
