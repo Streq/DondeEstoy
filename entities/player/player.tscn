@@ -15,10 +15,10 @@ extents = Vector2( 2, 1 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 4, 7 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 4, 3.5 )
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=5]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -47,7 +47,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=6]
 resource_name = "crouch"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -76,7 +76,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=7]
 resource_name = "crouch_slide"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -105,7 +105,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 resource_name = "crouch_walk"
 length = 0.8
 loop = true
@@ -136,7 +136,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=9]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -165,7 +165,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=10]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -195,7 +195,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=11]
 resource_name = "walk"
 length = 0.8
 loop = true
@@ -226,7 +226,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 3, 6 )
 
 [node name="player" type="KinematicBody2D" groups=[
@@ -241,7 +241,7 @@ z_index = 1
 texture = ExtResource( 1 )
 hframes = 10
 vframes = 10
-frame = 44
+frame = 40
 
 [node name="sight" type="Position2D" parent="Sprite"]
 position = Vector2( 0.992126, -3.77008 )
@@ -282,7 +282,7 @@ shape = SubResource( 3 )
 
 [node name="crouch_shape" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4.5 )
-shape = SubResource( 12 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="stand_area" type="Area2D" parent="."]
@@ -296,20 +296,20 @@ shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/air = SubResource( 13 )
-anims/crouch = SubResource( 14 )
-anims/crouch_slide = SubResource( 11 )
-anims/crouch_walk = SubResource( 10 )
-anims/idle = SubResource( 15 )
-anims/run = SubResource( 8 )
-anims/walk = SubResource( 16 )
+anims/air = SubResource( 5 )
+anims/crouch = SubResource( 6 )
+anims/crouch_slide = SubResource( 7 )
+anims/crouch_walk = SubResource( 8 )
+anims/idle = SubResource( 9 )
+anims/run = SubResource( 10 )
+anims/walk = SubResource( 11 )
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-shape = SubResource( 9 )
+shape = SubResource( 12 )
 
 [connection signal="body_entered" from="stand_area" to="stand_area" method="_on_stand_area_body_entered"]
 [connection signal="body_exited" from="stand_area" to="stand_area" method="_on_stand_area_body_exited"]
