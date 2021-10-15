@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/game/game.gd" type="Script" id=1]
 [ext_resource path="res://levels/persecuta/1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/bobo/0.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/win/win.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/4/4.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/angel/angel_level.tscn" type="PackedScene" id=6]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -13,4 +14,4 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-levels = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ]
+levels = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ]
