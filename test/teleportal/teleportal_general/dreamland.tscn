@@ -2,7 +2,7 @@
 
 [ext_resource path="res://terrain/terrain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/texture/gray.png" type="Texture" id=2]
-[ext_resource path="res://test/chase/pathfinder.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/monster/chaser/chaser.tscn" type="PackedScene" id=3]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 344, 136, 344, 112, 536, 116, 556, 136, 88, 96, 88, 76, 632, 76, 156, 96, 612, 96, 632, 168, 612, 148, 572, 168, 608, 148, 608, 100, 536, 100, 536, 108, 324, 108, 324, 100 )
