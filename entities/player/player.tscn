@@ -105,7 +105,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=13]
 resource_name = "crouch_walk"
 length = 0.8
 loop = true
@@ -136,7 +136,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=14]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -299,8 +299,8 @@ autoplay = "idle"
 anims/air = SubResource( 5 )
 anims/crouch = SubResource( 6 )
 anims/crouch_slide = SubResource( 7 )
-anims/crouch_walk = SubResource( 8 )
-anims/idle = SubResource( 9 )
+anims/crouch_walk = SubResource( 13 )
+anims/idle = SubResource( 14 )
 anims/run = SubResource( 10 )
 anims/walk = SubResource( 11 )
 
