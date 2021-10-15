@@ -4,7 +4,7 @@
 [ext_resource path="res://entities/level_portal/level_portal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://terrain/terrain.tscn" type="PackedScene" id=5]
-[ext_resource path="res://test/chase/pathfinder.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/monster/chaser/chaser.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/remote_door/lever_door.tscn" type="PackedScene" id=7]
 
 [sub_resource type="NavigationPolygon" id=1]

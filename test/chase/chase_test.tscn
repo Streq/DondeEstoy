@@ -2,7 +2,7 @@
 
 [ext_resource path="res://terrain/terrain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://test/chase/pathfinder.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/monster/chaser/chaser.tscn" type="PackedScene" id=3]
 [ext_resource path="res://test/chase/goal.gd" type="Script" id=5]
 
 [node name="Node2D" type="Node2D"]
