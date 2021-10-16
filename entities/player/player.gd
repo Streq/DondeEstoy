@@ -101,6 +101,9 @@ func _input(event):
 		jump = true
 	if event.is_action_pressed("B"):
 		emit_signal("action")
+	if event.is_action_pressed("full_view") and OS.is_debug_build():
+		$Sprite/sight.visible = !$Sprite/sight.visible
+	
 
 func die():
 	Signals.emit_signal("death")
