@@ -51,11 +51,13 @@ func move():
 		velocity = move_and_slide(velocity)
 	
 func can_player_see_me():
-	var players = get_tree().get_nodes_in_group("player")
-	if players.size():
-		var player = players[0] 
-		var target = player.get_pov().get_origin()
-		var space_state = get_world_2d().direct_space_state
-		var result = space_state.intersect_ray($sight.global_position, target, [], visibility_layers)
-		return result.has("collider") and result.collider.is_in_group("can_see")
+	var tree = get_tree()
+	if tree:
+		var players = get_tree().get_nodes_in_group("player")
+		if players.size():
+			var player = players[0] 
+			var target = player.get_pov().get_origin()
+			var space_state = get_world_2d().direct_space_state
+			var result = space_state.intersect_ray($sight.global_position, target, [], visibility_layers)
+			return result.has("collider") and result.collider.is_in_group("can_see")
 	return false
