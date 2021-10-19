@@ -4,3 +4,4 @@
 
 [node name="kill_zone" type="Area2D"]
 script = ExtResource( 1 )
+targets = PoolStringArray( "player" )
