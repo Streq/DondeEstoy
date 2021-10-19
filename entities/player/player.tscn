@@ -12,19 +12,19 @@ polygon = PoolVector2Array( -1.60839, -8, -7, -8, -7, 0, -3.04697, 0 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2, 1 )
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=15]
 radius = 0.5
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 4, 7 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 4, 3.5 )
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 4, 5 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=18]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -53,7 +53,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -81,7 +81,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=20]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -109,7 +109,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=21]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -139,7 +139,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=22]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -168,7 +168,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=23]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -198,7 +198,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=24]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -293,15 +293,15 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/sight/vision_raycast_target"]
-shape = SubResource( 3 )
+shape = SubResource( 15 )
 
 [node name="stand_shape" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
-shape = SubResource( 4 )
+shape = SubResource( 16 )
 
 [node name="crouch_shape" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4.5 )
-shape = SubResource( 5 )
+shape = SubResource( 17 )
 disabled = true
 
 [node name="stand_area" type="Area2D" parent="."]
@@ -315,13 +315,13 @@ shape = SubResource( 14 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/air = SubResource( 6 )
-anims/crouch = SubResource( 7 )
-anims/crouch_slide = SubResource( 8 )
-anims/crouch_walk = SubResource( 9 )
-anims/idle = SubResource( 10 )
-anims/run = SubResource( 11 )
-anims/walk = SubResource( 12 )
+anims/air = SubResource( 18 )
+anims/crouch = SubResource( 19 )
+anims/crouch_slide = SubResource( 20 )
+anims/crouch_walk = SubResource( 21 )
+anims/idle = SubResource( 22 )
+anims/run = SubResource( 23 )
+anims/walk = SubResource( 24 )
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 0
