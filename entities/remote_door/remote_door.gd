@@ -7,7 +7,7 @@ onready var body = $body
 var is_open = false
 
 func open():
-	if $AnimationPlayer:
+	if has_node("AnimationPlayer"):
 		$AnimationPlayer.play("hint")
 	$open.visible = true
 	$closed.visible = false
@@ -15,7 +15,7 @@ func open():
 	is_open = true
 
 func close():
-	if $AnimationPlayer:
+	if has_node("AnimationPlayer"):
 		$AnimationPlayer.play("hint")
 	$open.visible = false
 	$closed.visible = true
