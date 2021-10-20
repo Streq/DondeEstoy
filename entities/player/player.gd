@@ -15,6 +15,8 @@ var jump_speed := 8000
 var air := false
 
 var ground_friction = 10
+var air_short_jump_friction = 10
+
 var air_movement = 0.5
 
 var jump := false
@@ -27,6 +29,7 @@ func _ready():
 	$Sprite/sight/light.visible = true
 
 func _physics_process(delta):
+	var keep_jumping = Input.is_action_pressed("A")
 	var move_dir = float(Input.is_action_pressed("right"))-float(Input.is_action_pressed("left"))
 	var look = float(Input.is_action_pressed("down"))-float(Input.is_action_pressed("up"))
 	var crouch = Input.is_action_pressed("R") or !can_stand()
@@ -68,6 +71,8 @@ func _physics_process(delta):
 	if is_on_wall():
 		velocity.x = 0
 	if air:
+		if !keep_jumping and velocity.y < 0:
+			velocity.y =  lerp(velocity.y, 0, delta*ground_friction)
 		if can_stand():
 			$AnimationPlayer.play("air")
 	elif move_dir:
