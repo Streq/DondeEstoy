@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export(float) var SPEED: float = 30
+export(float) var SPEED_CHASE: float = 60
 var velocity: Vector2 = Vector2.ZERO
 
 var path: Array = []
@@ -26,8 +27,12 @@ func _physics_process(delta):
 
 func navigate():
 	if path.size() > 1:
-		velocity = global_position.direction_to(path[1]) * SPEED
-	
+		if path.size() == 2:
+			velocity = global_position.direction_to(path[1]) * SPEED_CHASE
+		else:
+			velocity = global_position.direction_to(path[1]) * SPEED
+		
+		
 		if global_position.distance_squared_to(path[0]) < SPEED*SPEED:
 			path.pop_front()
 	else:
