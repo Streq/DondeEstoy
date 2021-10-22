@@ -165,5 +165,5 @@ navpoly = SubResource( 3 )
 [node name="next_level_zone" parent="." instance=ExtResource( 5 )]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="next_level_zone"]
-position = Vector2( -184, 2620 )
+position = Vector2( -80, 2244 )
 shape = SubResource( 2 )
