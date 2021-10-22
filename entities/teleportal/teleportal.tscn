@@ -3,16 +3,16 @@
 [ext_resource path="res://entities/teleportal/teleportal.gd" type="Script" id=3]
 [ext_resource path="res://entities/teleportal/entrance.gd" type="Script" id=4]
 
-[sub_resource type="ViewportTexture" id=2]
+[sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("world_container")
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 6, 9 )
 
-[sub_resource type="OccluderPolygon2D" id=1]
+[sub_resource type="OccluderPolygon2D" id=3]
 closed = false
 cull_mode = 2
-polygon = PoolVector2Array( 0, -9, 0, -9, 0, 9, 0, 9 )
+polygon = PoolVector2Array( -0.001, -9, 0, -9, -0.00100708, 7.62939e-06, 0, 9, 0, 9, -56.0009, 9.33339, -56.0009, 20.0001 )
 
 [node name="teleportal" type="Node2D"]
 script = ExtResource( 3 )
@@ -28,7 +28,7 @@ script = ExtResource( 4 )
 
 [node name="render_polygon" type="Polygon2D" parent="center/entrance"]
 light_mask = 2
-texture = SubResource( 2 )
+texture = SubResource( 1 )
 polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 uv = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 vertex_colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
@@ -38,13 +38,14 @@ position = Vector2( -9, 0 )
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="center/entrance/Area2D"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="occluder" type="LightOccluder2D" parent="center/entrance"]
+visible = false
 light_mask = 2
 position = Vector2( -0.001, 0 )
 scale = Vector2( -1, 1 )
-occluder = SubResource( 1 )
+occluder = SubResource( 3 )
 light_mask = 2
 
 [node name="entrance2" type="Line2D" parent="center"]
@@ -57,7 +58,7 @@ orientation = -1
 
 [node name="render_polygon" type="Polygon2D" parent="center/entrance2"]
 light_mask = 2
-texture = SubResource( 2 )
+texture = SubResource( 1 )
 polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 uv = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 vertex_colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
@@ -67,12 +68,13 @@ position = Vector2( 9, 0 )
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="center/entrance2/Area2D"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="occluder" type="LightOccluder2D" parent="center/entrance2"]
+visible = false
 light_mask = 2
 position = Vector2( 0.001, 0 )
-occluder = SubResource( 1 )
+occluder = SubResource( 3 )
 light_mask = 2
 
 [connection signal="area_entered" from="center/entrance/Area2D" to="." method="_on_area_entered"]
