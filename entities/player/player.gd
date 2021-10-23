@@ -1,6 +1,11 @@
 extends KinematicBody2D
 
+class_name Player
+
 signal action()
+
+onready var blindspot = $Sprite/sight/blindspot
+onready var sight = $Sprite/sight
 
 var velocity := Vector2.ZERO
 
@@ -25,10 +30,14 @@ var crouching = false
 
 var walking = false
 
+var pause = false
+
 func _ready():
 	$Sprite/sight/light.visible = true
 
 func _physics_process(delta):
+	if pause:
+		return
 	var keep_jumping = Input.is_action_pressed("A")
 	var move_dir = float(Input.is_action_pressed("right"))-float(Input.is_action_pressed("left"))
 	var look = float(Input.is_action_pressed("down"))-float(Input.is_action_pressed("up"))
@@ -138,3 +147,10 @@ func crouch(val):
 	
 func can_stand():
 	return $stand_area.count == 0
+
+func disappear(val):
+	if val:
+		pause = true
+		$AnimationPlayer.play("disappear")
+	else:
+		pause = false

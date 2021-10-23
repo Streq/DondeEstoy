@@ -3,7 +3,7 @@
 [ext_resource path="res://entities/teleportal/teleportal.gd" type="Script" id=3]
 [ext_resource path="res://entities/teleportal/entrance.gd" type="Script" id=4]
 
-[sub_resource type="ViewportTexture" id=1]
+[sub_resource type="ViewportTexture" id=4]
 viewport_path = NodePath("world_container")
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -28,7 +28,7 @@ script = ExtResource( 4 )
 
 [node name="render_polygon" type="Polygon2D" parent="center/entrance"]
 light_mask = 2
-texture = SubResource( 1 )
+texture = SubResource( 4 )
 polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 uv = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 vertex_colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
@@ -58,7 +58,7 @@ orientation = -1
 
 [node name="render_polygon" type="Polygon2D" parent="center/entrance2"]
 light_mask = 2
-texture = SubResource( 1 )
+texture = SubResource( 4 )
 polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 uv = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 vertex_colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
