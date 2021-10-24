@@ -11,10 +11,10 @@
 [ext_resource path="res://camera/snap/snap_camera.tscn" type="PackedScene" id=9]
 [ext_resource path="res://levels/final/final.gd" type="Script" id=10]
 
-[sub_resource type="ViewportTexture" id=1]
+[sub_resource type="ViewportTexture" id=68]
 viewport_path = NodePath("world_container")
 
-[sub_resource type="OccluderPolygon2D" id=2]
+[sub_resource type="OccluderPolygon2D" id=69]
 closed = false
 cull_mode = 1
 polygon = PoolVector2Array( 0, 9, 0, 9, -56.0009, 9.33339, -56.0009, 20.0001, 59.9991, 20, 63.9988, -22.6667, -72.0012, -22.6666, -100.001, -17.3332, -96.0011, -11.9999, -36.0011, -10.6666, -32.0011, -9.3333 )
@@ -588,16 +588,16 @@ player_path = NodePath("../../player")
 world_vp_path = NodePath("../../Viewport")
 
 [node name="render_polygon" parent="world/portal/center/entrance" index="0"]
-texture = SubResource( 1 )
+texture = SubResource( 68 )
 
 [node name="render_polygon" parent="world/portal/center/entrance2" index="0"]
-texture = SubResource( 1 )
+texture = SubResource( 68 )
 
 [node name="occluder" type="LightOccluder2D" parent="world/portal"]
 light_mask = 2
 position = Vector2( -0.001, 0 )
 scale = Vector2( -1, 1 )
-occluder = SubResource( 2 )
+occluder = SubResource( 69 )
 light_mask = 2
 
 [node name="vision_changer" type="Node" parent="world/portal"]
