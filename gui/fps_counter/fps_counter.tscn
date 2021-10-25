@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://gui/fps_counter/fps_counter.gd" type="Script" id=1]
+[ext_resource path="res://assets/font/ProggyClean.ttf/ProggyCleanCE.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[node name="fps_counter" type="Label"]
+light_mask = 4
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+custom_fonts/font = SubResource( 1 )
+valign = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="ColorRect" parent="."]
+show_behind_parent = true
+light_mask = 4
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
