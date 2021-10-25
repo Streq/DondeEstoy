@@ -44,7 +44,7 @@ func _physics_process(delta):
 	var crouch = Input.is_action_pressed("R") or !can_stand()
 	var walk = Input.is_action_pressed("L")
 	
-	$Sprite/sight.rotation_degrees = look*60
+	$Sprite/sight/blindspot.rotation_degrees = look*60
 	
 	if move_dir:
 		if !air:
@@ -115,7 +115,7 @@ func _input(event):
 		jump = true
 	if event.is_action_pressed("B"):
 		emit_signal("action")
-	if event.is_action_pressed("full_view") and OS.is_debug_build():
+	if event.is_action_pressed("full_view") and Globals.debug:
 		$Sprite/sight.visible = !$Sprite/sight.visible
 	
 

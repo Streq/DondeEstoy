@@ -15,7 +15,7 @@ func _ready():
 
 
 func _input(event):
-	if OS.is_debug_build():
+	if Globals.debug:
 		if event.is_action_pressed("next_level"):
 			Signals.emit_signal("next_level")
 		if event.is_action_pressed("kill"):
